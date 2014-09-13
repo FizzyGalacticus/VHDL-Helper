@@ -29,11 +29,13 @@ def generateEntity(info):
 		if(i != (outputs-1)):
 			entityDef += ", "
 		
-	entityDef += "	:OUT BIT);\nEND %s;" % moduleName
+	entityDef += "	:OUT BIT);\nEND ENTITY %s;" % moduleName
 	
 	return entityDef	
 
-def generateArchitecture(info):
-	return ""
+def generateArchitecture(module):
+	return ("ARCHITECTURE LogicFunc OF %s IS\nBEGIN\n	-- Insert function definition here\nEND LogicFunc;" % module)
 
-print generateEntity(getInfo())
+moduleName, inputs, outputs = getInfo()
+print generateEntity((moduleName, inputs, outputs))
+print generateArchitecture(moduleName)
