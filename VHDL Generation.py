@@ -79,7 +79,7 @@ class vhdl:
 		
 		for i in range(self.numInputs):
 			if len(self.inputNames) > 0:
-				self.package += inputNames[i]
+				self.package += self.inputNames[i]
 			else:
 				self.package += "x%s" % i
 			
@@ -91,7 +91,7 @@ class vhdl:
 		
 		for i in range(self.numOutputs):
 			if len(self.outputNames) > 0:
-				self.package += outputNames[i]
+				self.package += self.outputNames[i]
 			else:
 				self.package += alpha[i]
 			
