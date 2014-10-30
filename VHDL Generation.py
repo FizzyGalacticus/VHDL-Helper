@@ -105,15 +105,19 @@ class vhdl:
 	def printVHDL(self):
 		self.generateEntity()
 		self.generateArchitecture()
+		
+		choice = raw_input("Do you want to package the entity? [Y/N]: ")
+		if choice.lower() == 'y':
+			self.generatePackage()
+		else:
+			self.package = ''
+		
 		print "LIBRARY ieee;\nUSE ieee.std_logic_1164.all;"
 		print ""
 		print self.entity
 		print ""
 		print self.architecture
-		
-		choice = raw_input("Do you want to package the entity? [Y/N]: ")
-		if choice.lower() == 'y':
-			self.generatePackage()
+		if len(self.package) > 0:
 			print ""
 			print self.package
 
