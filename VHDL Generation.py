@@ -21,7 +21,7 @@ def generateEntity(info):
 		if(i != (inputs-1)):
 			entityDef += ", "
 	
-	entityDef += "	:IN BIT;\n		"
+	entityDef += "	:IN STD_LOGIC;\n		"
 	
 	for i in range(outputs):
 		entityDef += alpha[i]
@@ -29,7 +29,7 @@ def generateEntity(info):
 		if(i != (outputs-1)):
 			entityDef += ", "
 		
-	entityDef += "	:OUT BIT);\nEND ENTITY %s;" % moduleName
+	entityDef += "	:OUT STD_LOGIC);\nEND ENTITY %s;" % moduleName
 	
 	return entityDef	
 
@@ -37,5 +37,7 @@ def generateArchitecture(module):
 	return ("ARCHITECTURE LogicFunc OF %s IS\nBEGIN\n	-- Insert function definition here\nEND LogicFunc;" % module)
 
 moduleName, inputs, outputs = getInfo()
+print "LIBRARY ieee;\nUSE ieee.std_logic_1164.all;"
 print generateEntity((moduleName, inputs, outputs))
+print ""
 print generateArchitecture(moduleName)
