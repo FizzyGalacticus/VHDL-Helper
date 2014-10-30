@@ -72,7 +72,7 @@ class vhdl:
 	def generatePackage(self):
 		self.packageName = raw_input("Please enter a name for the package: ")
 		
-		self.package = "LIBRARY ieee;\nUSE ieee.std_logic_1164.all;"
+		self.package = "LIBRARY ieee;\nUSE ieee.std_logic_1164.all;\n\n"
 		self.package += "PACKAGE %s IS\n" % self.packageName
 		self.package += "	COMPONENT %s\n" % self.entityName
 		self.package += "		PORT("
