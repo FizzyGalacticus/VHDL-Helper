@@ -20,6 +20,28 @@ class vhdl:
 		self.outputNames = []
 		for i in range(self.numOutputs):
 			self.outputNames.append(raw_input("Please enter the variable name for output #%s: " % (i+1)))
+		
+	def generateEntity():
+		entityDef = "ENTITY %s IS\n	PORT(" % self.name
+		
+		if self.numInputs == len(self.inputNames):
+			for i in range(self.numInputs):
+				entityDef += self.inputNames[i]
+				if i != (self.numInputs-1):
+					entityDef += ', '
+		
+		entityDef += "	:IN STD_LOGIC;\n		"
+		
+		if self.numOutputs == len(self.outputNames):
+			for i in range(self.numOutputs):
+				entityDef += self.outoutNames[i]
+		
+				if(i != (self.numOutputs-1)):
+					entityDef += ", "
+		
+		entityDef += "	:OUT STD_LOGIC);\nEND ENTITY %s;" % self.name
+	
+		return entityDef
 
 def getInfo():
 	module = raw_input("Please enter the name of your module: ")
