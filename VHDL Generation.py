@@ -3,6 +3,24 @@
 
 alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+class vhdl:
+	"""A helper class for generating VHDL code!"""
+	def __init__(self):
+		self.name = raw_input("Please enter the name of your module: ")
+		self.numInputs = input("Number of input variables: ")
+		self.numOutputs = input("Number of output variables: ")
+		self.numSignals = input("Number of signal variables: ")
+		
+	def getInputNames():
+		self.inputNames = []
+		for i in range(self.numInputs):
+			self.inputNames.append(raw_input("Please enter the variable name for input #%s: " % (i+1)))
+		
+	def getOutputNames():
+		self.outputNames = []
+		for i in range(self.numOutputs):
+			self.outputNames.append(raw_input("Please enter the variable name for output #%s: " % (i+1)))
+
 def getInfo():
 	module = raw_input("Please enter the name of your module: ")
 	numInputs = input("Number of input variables: ")
