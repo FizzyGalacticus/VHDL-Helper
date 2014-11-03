@@ -67,7 +67,7 @@ class vhdl:
 			for i in range(self.numOutputs):
 				self.architecture += "	%s <= --define variable here!\n" % alpha[i]
 		
-		self.architecture += "END LogicFunc;"
+		self.architecture += "END %s;" % self.architectureName
 	
 	def generatePackage(self):
 		self.packageName = raw_input("Please enter a name for the package: ")
